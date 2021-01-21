@@ -22,12 +22,11 @@
 
     var sessionState = sessionStorage[state];
     console.log(sessionState);
-
-    alert('pause');
-    
+    console.log(btoa(sessionState));
+   
     setTimeout(function()
     {
-        window.location.href = '/close' + window.location.search;
+        window.location.href = '/close' + window.location.search + '&sessionstate='+btoa(sessionState);
     }, 10);
     // FHIR.oauth2.ready(onReady, onError);
 
