@@ -16976,7 +16976,9 @@ function completeCodeFlow(params){
   }
   
   var ret = Adapter.get().defer();
+  console.log('getting state from storage:');
   var state = JSON.parse(sessionStorage[params.state]);
+  console.log(state);
 
   if (window.history.replaceState && BBClient.settings.replaceBrowserHistory){
     window.history.replaceState({}, "", window.location.toString().replace(window.location.search, ""));
@@ -17049,6 +17051,7 @@ function completeTokenRefreshFlow() {
   var ret = Adapter.get().defer();
   var tokenResponse = getPreviousToken();
   var state = JSON.parse(sessionStorage[tokenResponse.state]);
+  console.log('xxxx 1111');
   var refresh_token = tokenResponse.refresh_token;
 
   Adapter.get().http({
@@ -17155,6 +17158,7 @@ function isFakeOAuthToken(){
   if (validTokenResponse()) {
     var token = getPreviousToken();
     if (token && token.state) {
+      console.log('xxxx 2222');
       var state = JSON.parse(sessionStorage[token.state]);
       return state.fake_token_response;
     }
@@ -17211,10 +17215,12 @@ BBClient.ready = function(input, callback, errback){
 
     // Save the tokenReponse object into sessionStorage
     if (BBClient.settings.fullSessionStorageSupport) {
+      console.log('xxxx 4444');
       sessionStorage.tokenResponse = JSON.stringify(tokenResponse);
     } else {
       //Save the tokenResponse object and the state into sessionStorage keyed by state
       var combinedObject = $.extend(true, JSON.parse(sessionStorage[tokenResponse.state]), { 'tokenResponse' : tokenResponse });
+      console.log('xxxx 55555');
       sessionStorage[tokenResponse.state] = JSON.stringify(combinedObject);
     }
 
@@ -17397,11 +17403,14 @@ BBClient.authorize = function(params, errback){
 
       // Adding state to tokenResponse object
       if (BBClient.settings.fullSessionStorageSupport) { 
+        console.log('zzzz 1111');
         sessionStorage[state] = JSON.stringify(params);
         sessionStorage.tokenResponse = JSON.stringify({state: state});
       } else {
         var combinedObject = $.extend(true, params, { 'tokenResponse' : {state: state} });
+        console.log('zzz 2222');
         sessionStorage[state] = JSON.stringify(combinedObject);
+        console.log(sessionStorage[state]);
       }
 
       window.location.href = client.redirect_uri + "?state="+encodeURIComponent(state);
@@ -17409,6 +17418,7 @@ BBClient.authorize = function(params, errback){
     }
     
     sessionStorage[state] = JSON.stringify(params);
+    console.log('zzzzz 4444');
 
     console.log("sending client reg", params.client);
 
