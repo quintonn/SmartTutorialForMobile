@@ -17225,6 +17225,9 @@ BBClient.ready = function(input, callback, errback){
     }
 
     var state = JSON.parse(sessionStorage[tokenResponse.state]);
+    console.log('state:');
+    console.log(state);
+    
     if (state.fake_token_response) {
       tokenResponse = state.fake_token_response;
     }
