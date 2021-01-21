@@ -14,5 +14,6 @@
         //window.close();
         window.postMessage('xxx');//{event: 'done', data: window.location.search});
         window.shouldClose = true;
+        window.location.href = '/close';
     }, 1000);
 })(window);
