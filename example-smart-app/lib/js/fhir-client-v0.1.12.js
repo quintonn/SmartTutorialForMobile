@@ -17423,7 +17423,7 @@ BBClient.authorize = function(params, errback){
     sessionStorage[state] = JSON.stringify(params);
     console.log('zzzzz 4444');
     console.log(params);
-    console.log(sessionStorage[state])
+    console.log(sessionStorage[state]);
 
     console.log("sending client reg", params.client);
 
