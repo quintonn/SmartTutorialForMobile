@@ -1,5 +1,6 @@
 (function(window){
     console.log('ready');
+    alert('pause');
     // setTimeout(function()
     // {
     //     window.location.href = '/close' + window.location.search;
