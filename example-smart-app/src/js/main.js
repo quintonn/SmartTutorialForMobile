@@ -2,8 +2,16 @@
     console.log('ready');
     setTimeout(function()
     {
-        alert('redirecting');
+        alert('Processing...');
         //window.location.href = 'https://a9e3fef6f57b.ngrok.io/api/test';
-        window.location.href = 'https://a9e3fef6f57b.ngrok.io/api/test' + window.location.search + '&arg=1';
+        
+        var div = document.createElement('div');
+        div.id = 'codeData';
+        div.innerText = window.location.search;
+        div.style.display = 'none';
+        document.appendChild(div);
+
+        //window.location.href = 'https://a9e3fef6f57b.ngrok.io/api/test' + window.location.search + '&arg=1';
+        window.close();
     }, 3000);
 })(window);
