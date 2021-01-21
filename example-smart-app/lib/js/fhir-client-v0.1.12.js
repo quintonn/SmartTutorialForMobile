@@ -17227,7 +17227,7 @@ BBClient.ready = function(input, callback, errback){
     var state = JSON.parse(sessionStorage[tokenResponse.state]);
     console.log('state:');
     console.log(state);
-    
+
     if (state.fake_token_response) {
       tokenResponse = state.fake_token_response;
     }
@@ -17422,6 +17422,8 @@ BBClient.authorize = function(params, errback){
     
     sessionStorage[state] = JSON.stringify(params);
     console.log('zzzzz 4444');
+    console.log(params);
+    console.log(sessionStorage[state])
 
     console.log("sending client reg", params.client);
 
