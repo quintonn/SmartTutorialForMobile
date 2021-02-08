@@ -26,7 +26,9 @@
    
     setTimeout(function()
     {
-        window.location.href = '/close' + window.location.search + '&sessionstate='+btoa(sessionState);
+        console.log(window.location.search);
+        //window.location.href = '/close' + window.location.search + '&sessionstate='+btoa(sessionState);
+        window.location.href = '/qms' + window.location.search + '&sessionstate='+btoa(sessionState);
     }, 10);
     // FHIR.oauth2.ready(onReady, onError);
 
