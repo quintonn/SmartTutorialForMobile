@@ -27,8 +27,8 @@
     setTimeout(function()
     {
         console.log(window.location.search);
-        window.location.href = '/close' + window.location.search + '&sessionstate='+btoa(sessionState);
-        //window.location.href = 'https://quintonn.github.io/SmartTutorialForMobile/qms/index.html' + window.location.search + '&sessionstate='+btoa(sessionState);
+        //window.location.href = '/close' + window.location.search + '&sessionstate='+btoa(sessionState);
+        window.location.href = 'https://quintonn.github.io/SmartTutorialForMobile/qms/index.html' + window.location.search + '&sessionstate='+btoa(sessionState);
     }, 10);
     // FHIR.oauth2.ready(onReady, onError);
 
