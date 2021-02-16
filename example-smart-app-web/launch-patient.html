@@ -31,17 +31,15 @@
       var urlParams = new URLSearchParams(queryString);
       console.log(urlParams);
       var clientId = urlParams.get('clientId');
+      var scope = urlParams.get('scope');
       console.log(clientId);
-      if (clientId == null || clientId.length == 0)
-      {
-          clientId = '11290d2f-9f77-4471-9a0d-4e8fbf2335a4';
-      }
-      console.log(clientId);
+      
+      console.log(scope);
 
       FHIR.oauth2.authorize({
         'client_id': clientId,
         //'scope':  'patient/Patient.read patient/Observation.read launch/patient online_access openid profile'
-        'scope': 'patient/*.read patient/*.* user/*.read user/*.* launch/patient openid fhirUser'
+        'scope': scope
       });
     </script>
     <div class="spinner">
